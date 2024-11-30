@@ -1,0 +1,21 @@
+{
+  "nickname": "ilyfka",
+  "socialLinks": [
+    {
+      "iconClass": "icon-[ri--github-fill]",
+      "url": "https://github.com/Kushiko"
+    },
+    {
+      "iconClass": "icon-[ri--youtube-fill]",
+      "url": "https://www.youtube.com"
+    },
+    {
+      "iconClass": "icon-[arcticons--openai-chatgpt]",
+      "url": "https://www.chatgpt.com"
+    },
+    {
+      "iconClass": "icon-[ri--tailwind-css-fill]",
+      "url": "https://tailwindcss.com"
+    }
+  ]
+}

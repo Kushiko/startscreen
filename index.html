@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <title>Ilyfka</title>
+  </head>
+  <body
+    class="flex flex-col items-center justify-center min-h-screen px-4 py-10 mx-auto bg-ctp-mantle text-ctp-text"
+  >
+    <!-- Top content -->
+    <section class="w-full mb-4 font-bold text-center">
+      <!-- Ascii art -->
+      <pre class="mb-4 text-sm text-ctp-blue md:text-xl">
+██╗██╗  ██╗   ██╗███████╗██╗  ██╗ █████╗ 
+██║██║  ╚██╗ ██╔╝██╔════╝██║ ██╔╝██╔══██╗
+██║██║   ╚████╔╝ █████╗  █████╔╝ ███████║
+██║██║    ╚██╔╝  ██╔══╝  ██╔═██╗ ██╔══██║
+██║███████╗██║   ██║     ██║  ██╗██║  ██║
+╚═╝╚══════╝╚═╝   ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ 
+        </pre
+      >
+      <!-- Short information -->
+      <div
+        class="flex flex-col items-center justify-center max-w-sm gap-4 mx-auto mb-10 md:flex-row md:max-w-2xl"
+      >
+        <!-- Username -->
+        <span
+          class="inline-flex items-center w-full gap-2 px-4 py-1 border-2 rounded-lg bg-ctp-green/20 border-ctp-green md:w-auto"
+          ><span class="icon-[ri--user-3-fill]"> </span
+          ><span id="username_data">XX</span></span
+        >
+        <!-- Weather -->
+        <span
+          class="inline-flex items-center w-full gap-2 px-4 py-1 border-2 rounded-lg bg-ctp-mauve/20 border-ctp-mauve md:w-auto"
+        >
+          <span class="icon-[ri--sun-fill]"></span
+          ><span id="weather_data">XX°C</span>
+        </span>
+        <!-- Time -->
+        <span
+          class="inline-flex items-center w-full gap-2 px-4 py-1 border-2 rounded-lg bg-ctp-peach/20 border-ctp-peach md:w-auto"
+        >
+          <span class="icon-[ri--time-fill]"></span
+          ><span id="time_data">XX:XX PM</span></span
+        >
+        <!-- Date -->
+        <span
+          class="inline-flex items-center w-full gap-2 px-4 py-1 border-2 rounded-lg bg-ctp-pink/20 border-ctp-pink md:w-auto"
+        >
+          <span class="icon-[ri--calendar-2-fill]"></span
+          ><span id="date_data">XX XX</span>
+        </span>
+      </div>
+    </section>
+    <!-- Bottom Section -->
+    <section
+      class="flex flex-col items-stretch justify-center w-full max-w-sm gap-4 mx-auto md:flex-row md:max-w-2xl h-72"
+    >
+      <div
+        class="grid items-center justify-center w-full h-full grid-cols-2 gap-4 md:grid-cols-4"
+        id="links_grid"
+      >
+        <!-- Links are dynamically added here -->
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="./js/getUserData.js"></script>
+    <script src="./js/getBadges.js"></script>
+  </body>
+</html>
