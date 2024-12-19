@@ -100,9 +100,99 @@
         </a>
       </div>
     </section>
+    <div id="search-modal" class="fixed inset-0 z-50 hidden">
+      <!-- Background -->
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+      ></div>
 
+      <!-- Input Container -->
+      <div
+        id="modal-content"
+        class="absolute bottom-[-100%] left-1/2 transform -translate-x-1/2 transition-all duration-300 w-3/4 max-w-lg bg-gray-800 border-2 border-blue-400 rounded-lg"
+      >
+        <div class="relative w-full">
+          <!-- Icon -->
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-[#89B4FA]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-4.35-4.35m1.59-4.91a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </span>
+
+          <!-- Input -->
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search..."
+            class="w-full py-2 pl-10 pr-4 text-lg text-blue-400 bg-gray-800 rounded-lg focus:outline-none placeholder-blue-400/70"
+          />
+        </div>
+      </div>
+    </div>
     <!-- Scripts -->
     <script src="./js/getBadges.js"></script>
     <script src="./js/getUserData.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchModal = document.getElementById("search-modal");
+        const modalContent = document.getElementById("modal-content");
+        const searchInput = document.getElementById("search-input");
+
+        // Открытие модального окна при нажатии на обычный символ
+        document.addEventListener("keydown", (e) => {
+          // Проверяем, чтобы это была не клавиша модификатор (Ctrl, Shift, Alt и т.д.)
+          if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+            // Открыть модальное окно
+            searchModal.classList.remove("hidden");
+            setTimeout(() => {
+              modalContent.style.bottom = "50%"; // Выезд поля сверху
+              searchInput.focus(); // Устанавливаем фокус на поле ввода
+            }, 10);
+
+            // Добавляем символ в поле ввода
+            if (searchInput.value.length === 0) {
+              searchInput.value += e.key;
+            }
+          }
+        });
+
+        // Закрытие окна при клике на фон
+        searchModal.addEventListener("click", (e) => {
+          if (
+            e.target === searchModal ||
+            e.target.classList.contains("backdrop-blur-sm")
+          ) {
+            closeModal();
+          }
+        });
+
+        // Закрытие при нажатии Esc
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Enter")
+            window.location.href = `https://duckduckgo.com/?q=${searchInput.value}`;
+        });
+        function closeModal() {
+          modalContent.style.bottom = "-100%";
+          setTimeout(() => searchModal.classList.add("hidden"), 300);
+        }
+      });
+    </script>
+
+    <script src="./js/getUserData.js"></script>
+    <script src="./js/getBadges.js"></script>
   </body>
 </html>
